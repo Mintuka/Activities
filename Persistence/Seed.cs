@@ -6,20 +6,21 @@ namespace Persistence
     public class Seed
     {
         public static async Task SeedData(DataContext context, UserManager<User> userManager)
-        {
+        { 
             if (!userManager.Users.Any())
             {
                 var users = new List<User>
                 {
-                    new User{DisplyaName = "Bob", UserName = "bob", Email = "bob@test.come"},
-                    new User{DisplyaName = "Bob", UserName = "bob", Email = "bob@test.come"},
-                    new User{DisplyaName = "Bob", UserName = "bob", Email = "bob@test.come"}
+                    new User{DisplyaName = "Bob", UserName = "bob", Email = "bob@test.com"},
+                    new User{DisplyaName = "Ana", UserName = "ana", Email = "ana@test.com"},
+                    new User{DisplyaName = "Tin", UserName = "tin", Email = "tin@test.com"}
                 };
                 foreach (var user in users)
                 {
-                    await userManager.CreateAsync(user, "Pa$$word");
+                    await userManager.CreateAsync(user, "Pa$$word1");
                 }
             }
+
             if (context.Activities.Any()) return;
             
             var activities = new List<Activity>
